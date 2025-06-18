@@ -1,0 +1,8 @@
+﻿syntax = "proto3";
+option csharp_namespace = "Shared.GrpcContracts.User";
+
+package user;
+
+service UserConfigService {
+  // Các RPC sẽ được định nghĩa ở đây
+}

@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using ProductManagementService.Api.Services;
+using ProductManagementService.Infrastructure.Persistence.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();
 
 var app = builder.Build();
+
+// Configure the database context
+builder.Services.AddDbContext<ProductDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<ProductService>();

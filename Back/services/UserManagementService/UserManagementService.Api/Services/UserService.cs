@@ -27,15 +27,18 @@ namespace UserManagementService.Api.Services
                     UserName = request.UserName,
                     Password = request.Password,
                     FullName = request.FullName,
+                    BirthDate = request.BirthDate?.ToDateTime(),
+                    PhoneNumber = request.PhoneNumber,
                     Email = request.Email,
-                    Address = request.Address
+                    Address = request.Address,
+                    TimeZone = request.TimeZone
                 };
                 var userId = await _mediator.Send(command);
 
                 return new RegisterUserResponse
                 {
                     Success = true,
-                    Message = "User registered successfully.",
+                    Message = "Đăng ký tài khoản thành công.",
                     UserId = userId.ToString()
                 };
             }
@@ -54,6 +57,7 @@ namespace UserManagementService.Api.Services
                 var query = new LoginQuery
                 {
                     UserName = request.UserName,
+                    Email = request.Email,
                     Password = request.Password
                 };
                 var token = await _mediator.Send(query);

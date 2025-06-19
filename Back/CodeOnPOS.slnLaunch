@@ -3,10 +3,6 @@
     "Name": "New Profile",
     "Projects": [
       {
-        "Path": "services\\ProductManagementService\\ProductManagementService.Api\\ProductManagementService.Api.csproj",
-        "Action": "Start"
-      },
-      {
         "Path": "services\\UserManagementService\\UserManagementService.Api\\UserManagementService.Api.csproj",
         "Action": "Start"
       }
